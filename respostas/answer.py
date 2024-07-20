@@ -1,8 +1,12 @@
 def binary_to_decimal(bin):
     decimal = 0
-    bin = str(bin)  
-    for digit in bin:
-        decimal = decimal * 2 + int(digit)
+    bin = str(bin)
+    length = len(bin)
+    
+    for i in range(length):
+        digit = int(bin[length - 1 - i])
+        decimal += digit * (2 ** i)
+        
     return decimal
 
 def decimal_to_binary(dec):
@@ -21,5 +25,5 @@ def test_convertions(): # Casos de teste
     assert decimal_to_binary(10) == "1010"
     assert decimal_to_binary(15) == "1111"
     print("All tests passed!")
-    
+
 test_convertions()
